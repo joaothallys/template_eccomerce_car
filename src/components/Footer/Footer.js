@@ -3,9 +3,13 @@ import './Footer.style.css'; // Importujemy plik CSS ze stylami
 import FacebookIcon from '@mui/icons-material/Facebook';
 import XIcon from '@mui/icons-material/X';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import {useSelector} from 'react-redux'
+
 export const Footer = () => {
+  const theme = useSelector((state) => state.theme.value)
+
   return (
-    <footer className="footer" style={{ backgroundColor: '#4e4ffa' }}>
+    <footer  className="footer"  style={{background: theme}}>
       <div className="footer-content">
         <div className="footer-info">
           <p>Email: example@example.com</p>

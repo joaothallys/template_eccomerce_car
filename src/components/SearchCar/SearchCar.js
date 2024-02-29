@@ -4,12 +4,13 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-
+import {useSelector} from 'react-redux'
 import Button from '@mui/material/Button';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
 import './SearchCar.style.css';
 export const SearchCar = () => {
+    const theme = useSelector((state) => state.theme.value)
 
     const inputsSearchCar = [{ value: "Model", label: "Model" }
         , { value: "Brand", label: "Brand" },
@@ -44,7 +45,7 @@ export const SearchCar = () => {
                     ))}
 
                 </Grid>
-                <Button className='search__btn' variant="contained">SEARCH </Button>
+                <Button  style={{background: theme}} className='search__btn' variant="contained">SEARCH </Button>
             </Box>
         </Container>
 

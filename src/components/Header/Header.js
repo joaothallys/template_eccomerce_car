@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import './Header.style.css';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -13,31 +13,52 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import TextField from '@mui/material/TextField';
+import { useDispatch } from "react-redux";
+import { changeColor } from '../../store/slices/themeSlice';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['home', 'service', 'cars', 'featured Cars', 'review'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 export const Header = () => {
+  const dispatch = useDispatch();
+  const storageColor = localStorage.getItem('color');
+
+  const [color, setColor] = useState(() => {
+    return storageColor ?? "";
+
+  });
+
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [scrollPosition, setScrollPosition] = useState(0);
   const appBarColor = scrollPosition > 1 ? '#000' : 'transparent';
 
+  useEffect(() => {
+    dispatch(changeColor(storageColor));
+    localStorage.setItem('color', color);
+  }, [color]);
+
+
+
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
+
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+    const element = document.getElementById("review");
+    element?.scrollIntoView({
+      behavior: 'smooth'
+    })
+    setAnchorElUser(null);
   };
-
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
   useEffect(() => {
     const handleScroll = () => {
       const position = window.scrollY;
@@ -49,7 +70,7 @@ export const Header = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []); 
+  }, []);
 
   return (
     <AppBar className='navbar' position="sticky" style={{ background: appBarColor, boxShadow: 'none' }}>
@@ -104,7 +125,7 @@ export const Header = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem id={'nav_' + page} key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
@@ -163,6 +184,13 @@ export const Header = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
+              <TextField onChange={(event) => setColor(event.target.value)} id="outlined-basic" label="Set Color" variant="outlined" />
+              <Button
+                onClick={() => { dispatch(changeColor(color)) }}
+                sx={{ width: "100%", my: 1, color: 'blue', display: 'block' }}
+              >
+                Change Color
+              </Button>
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>

@@ -2,19 +2,22 @@ import React from 'react'
 import './Hero.style.css';
 import { SearchCar } from '../SearchCar/SearchCar';
 import { Header } from '../Header/Header';
+import {useSelector} from 'react-redux'
 
 export const Hero = () => {
+    const theme = useSelector((state) => state.theme.value)
+    console.log(theme)
     return (
         <>
         <Header/>
         <section id="hero" class="hero">
             <div class="hero__container">
                 <div class="hero__txt">
-                    <h2>get your desired car in resonable price</h2>
-                    <p>
+                    <h2 style={{color: theme}}>get your desired car in resonable price</h2>
+                    <p style={{color: theme}}>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore   magna aliqua.
                     </p>
-                    <button class="hero__btn" onclick="window.location.href='#'">Contact us</button>
+                    <button  style={{background: theme}} class="hero__btn" onclick="window.location.href='#'">Contact us</button>
                 </div>
             </div>
             <SearchCar/>
