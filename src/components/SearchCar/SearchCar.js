@@ -4,7 +4,7 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import {useSelector} from 'react-redux'
+import { useSelector } from 'react-redux'
 import Button from '@mui/material/Button';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
@@ -14,9 +14,9 @@ export const SearchCar = () => {
 
     const inputsSearchCar = [{ value: "Model", label: "Model" }
         , { value: "Brand", label: "Brand" },
-    { value: "Year", label: "Year" }, { value: "Model", label: "Model" }
-    , { value: "Brand", label: "Brand" },
-{ value: "Year", label: "Year" },]
+    { value: "Year", label: "Year" }, { value: "Model", label: "Modelo" }
+        , { value: "Brand", label: "Brand" },
+    { value: "Year", label: "Year" },]
 
     return (
 
@@ -45,7 +45,7 @@ export const SearchCar = () => {
                     ))}
 
                 </Grid>
-                <Button  style={{background: theme}} className='search__btn' variant="contained">SEARCH </Button>
+                <Button style={{ background: theme }} className='search__btn' variant="contained">SEARCH </Button>
             </Box>
         </Container>
 
