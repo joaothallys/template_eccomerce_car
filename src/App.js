@@ -1,7 +1,7 @@
 import './App.css';
 import { Header, Navbar } from './components/Header/Header';
 import { Hero } from './components/Hero/Hero';
-import { Services } from './components/Services/Services';
+import { Services } from './components/Services/apiServices';
 import { NewCars } from './components/NewCars/NewCars';
 import { FeaturedCars } from './components/FeaturedCars/FeaturedCars';
 import { Reviews } from './components/Reviews/Reviews';

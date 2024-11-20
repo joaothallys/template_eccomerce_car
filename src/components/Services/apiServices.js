@@ -38,3 +38,26 @@ export const Services = () => {
     </section>
   )
 }
+
+const API_URL = 'https://compara-e-venda-de-veiculos.onrender.com/anuncio/listar';
+
+export const fetchCars = async () => {
+  try {
+    const response = await fetch(API_URL, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzcHJpbmctc2VjdXJpdHktand0Iiwic3ViIjoia2Fpa2VAZXhhbXBsZS5jb20iLCJleHAiOjE3MzIxMTgzODYsImlhdCI6MTczMjExNTM4Niwic2NvcGUiOiJVU0VSIn0.do6nN7eL1IGD18wPvi_umsLZgUMGI-3Kme6bXIM3F9wZ-UVI0MtBryKpDz9eGQjki7sp_bhXa2tSTVFDfVpm5ADFCTi9qHONCnD8o95-5ff62yGSXk0NjrKhZ3AogiFDM_LpSPswCAwywkybXeC4ckySz9ioCcy3JGh0Mlvwr90tym20Fc5FyQbddsqO2Pw8-1vRSs1ekZiFdSX0Gd8eMm9mmigawd4l9yb53Ny0WohKoTD1Ajnn1cX8Ws1MPAhaRvk02TkuN_IPnY_MeoGT64nj3s9nnpsQeCxEM_Qxgrd1KxNWyZWVX-hM14zDe-n7ZsIqafPIdn7keLnGa-aFGA`, // Adicionando o token no cabeçalho
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error('Erro ao buscar os dados da API');
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
