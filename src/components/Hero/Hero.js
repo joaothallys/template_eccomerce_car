@@ -1,27 +1,35 @@
-import React from 'react'
+import React from 'react';
 import './Hero.style.css';
 import { SearchCar } from '../SearchCar/SearchCar';
 import { Header } from '../Header/Header';
-import {useSelector} from 'react-redux'
+import { useSelector } from 'react-redux';
 
 export const Hero = () => {
-    const theme = useSelector((state) => state.theme.value)
-    console.log(theme)
+    const theme = useSelector((state) => state.theme.value);
+    console.log(theme);
     return (
         <>
-        <Header/>
-        <section id="hero" class="hero">
-            <div class="hero__container">
-                <div class="hero__txt">
-                    <h2 style={{color: theme}}>get your desired car in resonable price</h2>
-                    <p style={{color: theme}}>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore   magna aliqua.
-                    </p>
-                    <button  style={{background: theme}} class="hero__btn" onclick="window.location.href='#'">Contact us</button>
+            <Header />
+            <section id="hero" className="hero">
+                <div className="hero__container">
+                    <div className="hero__txt">
+                        <h2 style={{ color: theme }}>
+                            Encontre o carro dos seus sonhos por um preço que cabe no seu bolso
+                        </h2>
+                        <p style={{ color: theme }}>
+                            Compre ou venda carros de forma rápida, segura e confiável. Busque o modelo, marca e ano que você procura, e faça um ótimo negócio com a gente.
+                        </p>
+                        <button 
+                            style={{ background: theme }} 
+                            className="hero__btn" 
+                            onClick={() => window.location.href = '#'}
+                        >
+                            Encontre seu carro agora
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <SearchCar/>
-        </section>
+                <SearchCar />
+            </section>
         </>
-    )
-}
+    );
+};

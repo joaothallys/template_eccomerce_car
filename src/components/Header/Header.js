@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import './Header.style.css';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -16,17 +16,18 @@ import AdbIcon from '@mui/icons-material/Adb';
 import TextField from '@mui/material/TextField';
 import { useDispatch } from "react-redux";
 import { changeColor } from '../../store/slices/themeSlice';
+import { useNavigate } from 'react-router-dom'; // Importando useNavigate do React Router
 
-const pages = ['home', 'service', 'cars', 'featured Cars', 'review'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['casa', 'serviço', 'carros', 'carros em destaque', 'revisão'];
+const settings = ['Perfil', 'Conta', 'Painel', 'Sair'];
 
 export const Header = () => {
   const dispatch = useDispatch();
-  const storageColor = localStorage.getItem('color');
+  const navigate = useNavigate(); // Usando useNavigate para navegação programática
 
+  const storageColor = localStorage.getItem('color');
   const [color, setColor] = useState(() => {
     return storageColor ?? "";
-
   });
 
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -38,8 +39,6 @@ export const Header = () => {
     dispatch(changeColor(storageColor));
     localStorage.setItem('color', color);
   }, [color]);
-
-
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -53,12 +52,22 @@ export const Header = () => {
     const element = document.getElementById("review");
     element?.scrollIntoView({
       behavior: 'smooth'
-    })
+    });
     setAnchorElUser(null);
   };
+
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  // Função para navegar para a página de login
+  const handleLoginNavigation = (setting) => {
+    if (setting === 'Perfil' || setting === 'Conta') {
+      navigate('/login'); // Redireciona para a página de login
+    }
+    setAnchorElUser(null);
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const position = window.scrollY;
@@ -131,7 +140,7 @@ export const Header = () => {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+
           <Typography
             variant="h5"
             noWrap
@@ -150,6 +159,7 @@ export const Header = () => {
           >
             LOGO
           </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
@@ -184,15 +194,8 @@ export const Header = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              <TextField onChange={(event) => setColor(event.target.value)} id="outlined-basic" label="Set Color" variant="outlined" />
-              <Button
-                onClick={() => { dispatch(changeColor(color)) }}
-                sx={{ width: "100%", my: 1, color: 'blue', display: 'block' }}
-              >
-                Change Color
-              </Button>
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting} onClick={() => handleLoginNavigation(setting)}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
@@ -202,4 +205,4 @@ export const Header = () => {
       </Container>
     </AppBar>
   );
-}
+};

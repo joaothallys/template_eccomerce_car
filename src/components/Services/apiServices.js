@@ -47,7 +47,7 @@ export const fetchCars = async () => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzcHJpbmctc2VjdXJpdHktand0Iiwic3ViIjoia2Fpa2VAZXhhbXBsZS5jb20iLCJleHAiOjE3MzIxMTgzODYsImlhdCI6MTczMjExNTM4Niwic2NvcGUiOiJVU0VSIn0.do6nN7eL1IGD18wPvi_umsLZgUMGI-3Kme6bXIM3F9wZ-UVI0MtBryKpDz9eGQjki7sp_bhXa2tSTVFDfVpm5ADFCTi9qHONCnD8o95-5ff62yGSXk0NjrKhZ3AogiFDM_LpSPswCAwywkybXeC4ckySz9ioCcy3JGh0Mlvwr90tym20Fc5FyQbddsqO2Pw8-1vRSs1ekZiFdSX0Gd8eMm9mmigawd4l9yb53Ny0WohKoTD1Ajnn1cX8Ws1MPAhaRvk02TkuN_IPnY_MeoGT64nj3s9nnpsQeCxEM_Qxgrd1KxNWyZWVX-hM14zDe-n7ZsIqafPIdn7keLnGa-aFGA`, // Adicionando o token no cabeçalho
+        Authorization: `Bearer eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzcHJpbmctc2VjdXJpdHktand0Iiwic3ViIjoia2Fpa2VAZXhhbXBsZS5jb20iLCJleHAiOjE3MzI4MzY2MzEsImlhdCI6MTczMjgzMzYzMSwic2NvcGUiOiJVU0VSIn0.e6fPpjmWfxeLkXu6hWG55U4Ko6vMohpPaxq4nK0HepF4nqd7b13Q0SjhoIbSxg03qmWFIkbquHceKS-JW8ztj-uNb6SJPYgXFCaY_OguFi1utwZymR66TFD_i5TgCDqyKhg6EElahldrHrzrKud93F_cNLiHBOIYlb1MVRvaZWQu9lx4S2OHtt43ykDDpU8BAgTAlVnj9dKmlKGMjni8U5wpEDPMmwwBVzBPpF-UHT0OrwK1fQzSqiJ7EttOLjBUKnWe9tjRdao75Begv4I-FZQfFgDIeeDjiAeqRFImge7oNpafQ38mqL4beSGeTgKuBy1vURpcAA6Qcxog3DPzSQ`, // Adicionando o token no cabeçalho
       },
     });
 
