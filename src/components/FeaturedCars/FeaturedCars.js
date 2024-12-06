@@ -11,7 +11,7 @@ export const FeaturedCars = () => {
   useEffect(() => {
     const getCars = async () => {
       try {
-        const data = await fetchCars(); // Usando o serviço para buscar os dados
+        const data = await fetchCars();
         setCars(data);
       } catch (err) {
         setError(err.message);
@@ -66,7 +66,7 @@ export const FeaturedCars = () => {
           <h2>
             Checkout <span>the</span> featured cars
           </h2>
-          <p>featured cars</p>
+          <p>Carros em destaque</p>
         </div>
         <div className="featured-cars__content">
           <Box sx={{ width: 1 }}>

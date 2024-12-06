@@ -16,9 +16,9 @@ export const Hero = () => {
                         <h2 style={{ color: theme }}>
                             Encontre o carro dos seus sonhos por um preço que cabe no seu bolso
                         </h2>
-                        <p style={{ color: theme }}>
+                        {/* <p style={{ color: theme }}>
                             Compre ou venda carros de forma rápida, segura e confiável. Busque o modelo, marca e ano que você procura, e faça um ótimo negócio com a gente.
-                        </p>
+                        </p> */}
                         <button 
                             style={{ background: theme }} 
                             className="hero__btn" 

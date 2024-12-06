@@ -1,9 +1,9 @@
 import React from 'react';
 import './NewCars.style.css';
 import Carousel from 'react-material-ui-carousel';
-import car1 from '../assets/ncm1.png'; // Substituir por imagens reais de carros
-import car2 from '../assets/ncm2.png';
-import car3 from '../assets/ncm3.png';
+import car1 from '../assets/foto 1.png'; // Substituir por imagens reais de carros
+import car2 from '../assets/foto 2.png';
+import car3 from '../assets/foto 3.png';
 import Button from '@mui/material/Button';
 import { useSelector } from 'react-redux';
 
