@@ -47,7 +47,7 @@ export const fetchCars = async () => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzcHJpbmctc2VjdXJpdHktand0Iiwic3ViIjoia2Fpa2VAZXhhbXBsZS5jb20iLCJleHAiOjQzMjUyMzY0OTMsImlhdCI6MTczMzIzNjQ5Mywic2NvcGUiOiJVU0VSIn0.iUWYYoVJvhS0GX1hN1arRwgC6-5IuNmtbkVE-VOzD-mR-pjpY0o5ejmZGSSUsGigJKx29zf9fvBlETTyGBzmiyVFyd-dojfQ-zoPc1YIKktFk04uaEVEOk2ilahq2_R8XMSPdy76A4xAH38oQ9wZLruQ1N1BCqsxNK3xgC1jdmbwn1-FcYyp8NcUoJ-rfx7KQPknWPHsO5HGaidNfShrtaGn85pn1bnFJZIaxKAJY5f0BYWzrZHxT9Xjzy3a-ckjd8GDIIg4ABtaufuGbb33H6sjow159OphGpOdDtyAAinWcTBfjzEGHw8RUricjw_ERRpVmmnWo4ru4n-ITkISqQ`,
+        Authorization: `Bearer eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzcHJpbmctc2VjdXJpdHktand0Iiwic3ViIjoia2Fpa2VAZXhhbXBsZS5jb20iLCJleHAiOjQzMjQ4OTg1MzksImlhdCI6MTczMjg5ODUzOSwic2NvcGUiOiJVU0VSIn0.V1ddE-eXRhq00OiPmu_d53NGpxTaJVZKpg7n4kfu-rlW07lwrMAfHdimcu_X2biDQwgCMwylOhbqMuExtgwQV43KiCx72ZvRQWSDLXgyYjRo0SRwJ2YfI_J8rldyMVp6rtfi4P3eN1X0BeimSQBanJ8GdA5-TDTnvq8COwl-KOtNWXhICvLyAYTSXf5SgFdmpTnseUl3PTwMTW7NTGBUxWPLdM0oz-lpLHhP0y8L6OhmP7QQ3ABgpAuTLvsRoBnmEiUIM-5PH7Gm6AKHGGmZlJkf3KGFuQ4SIA3wo9I82viSXfUR8Qz9BWNKGuBuCYMxA9yRdWVNcevZ2k-8XK32Zg`,
       },
     });
 
@@ -60,4 +60,17 @@ export const fetchCars = async () => {
   } catch (error) {
     throw error;
   }
+};
+
+// services/authService.js
+export const loginUser = async (email, password) => {
+  const response = await fetch('https://compara-e-venda-de-veiculos.onrender.com/login/auth/user', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, senha: password }),
+  });
+
+  return response;
 };

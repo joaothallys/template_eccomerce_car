@@ -1,14 +1,29 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Login.style.css'; // Estilo da tela de login
+import { loginUser } from '../Services/apiServices'; // Importe o serviço de autenticação
 
 export const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-        // Aqui você pode adicionar a lógica de autenticação
-        console.log("Login com", email, password);
+        try {
+            const response = await loginUser(email, password);
+            if (response.status === 200) {
+                const data = await response.json();
+                localStorage.setItem('authToken', data.AccessToken); // Armazena o token no localStorage
+                localStorage.setItem('password', password);
+                localStorage.setItem('nome', data.nome); // Armazena a senha no localStorage
+                navigate('/manage');
+            } else {
+                console.error('Login failed');
+            }
+        } catch (error) {
+            console.error('Error during login:', error);
+        }
     };
 
     return (
@@ -36,7 +51,7 @@ export const Login = () => {
                         required
                     />
                 </div>
-                <button type="submit" className="login__btn">Entrar</button>
+                <button type="submit">Login</button>
             </form>
         </div>
     );
