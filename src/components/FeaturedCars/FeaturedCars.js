@@ -3,6 +3,7 @@ import './FeaturedCars.style.css';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import CircularProgress from '@mui/material/CircularProgress';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { fetchCars } from '../Services/apiServices';
 import { fetchVeiculoById } from '../Services/veiculosService'; // Importando o serviço
 
@@ -48,7 +49,7 @@ export const FeaturedCars = () => {
   };
 
   const FeaturedCar = ({ car }) => {
-    const { veiculo, preco, usuarioVendedor } = car;
+    const { veiculo, preco } = car;
 
     return (
       <Box onClick={() => openModal(veiculo.id)} className="featured-car-card"> {/* Adiciona evento de clique */}
@@ -73,9 +74,6 @@ export const FeaturedCars = () => {
               <a href="#">{veiculo.modelo}</a>
             </h2>
             <h3>R$ {parseFloat(preco).toFixed(2)}</h3>
-            <p>
-              Vendedor: {usuarioVendedor.nome} - {usuarioVendedor.telefone}
-            </p>
             <p>{veiculo.caracteristicasEspecificas}</p>
           </div>
         </div>
@@ -83,12 +81,18 @@ export const FeaturedCars = () => {
     );
   };
 
+  const handleWhatsAppClick = (telefone) => {
+    const cleanedPhone = telefone.replace(/\D/g, ''); // Remove caracteres especiais
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${cleanedPhone}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <section id="featured-cars" className="featured-cars">
       <div className="featured-cars__container">
         <div className="featured-cars__header">
           <h2>
-          Confira <span>os</span> carros em destaque
+            Confira <span>os</span> carros em destaque
           </h2>
           <p>Carros em destaque</p>
         </div>
@@ -134,6 +138,15 @@ export const FeaturedCars = () => {
               <p>
                 <strong>Características:</strong> {selectedCar.caracteristicasEspecificas}
               </p>
+              {selectedCar.usuario && (
+                <p>
+                  <strong>Vendedor:</strong> {selectedCar.usuario.nome} - {selectedCar.usuario.telefone}
+                  <WhatsAppIcon
+                    style={{ cursor: 'pointer', marginLeft: '10px', color: '#25D366' }} // Define a cor verde
+                    onClick={() => handleWhatsAppClick(selectedCar.usuario.telefone)}
+                  />
+                </p>
+              )}
             </div>
           ) : (
             <p>Carregando detalhes...</p>

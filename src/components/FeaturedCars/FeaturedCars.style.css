@@ -22,11 +22,15 @@
 }
 
 .featured-car__img img {
-    width: 100%;        /* A imagem vai ocupar toda a largura do contêiner */
-    height: 200px;      /* Defina uma altura fixa para as imagens */
-    object-fit: cover;  /* As imagens manterão sua proporção e preencherão o contêiner */
-    object-position: center; /* Garante que o foco da imagem permaneça centralizado */
-  }
+    width: 100%;
+    /* A imagem vai ocupar toda a largura do contêiner */
+    height: 200px;
+    /* Defina uma altura fixa para as imagens */
+    object-fit: cover;
+    /* As imagens manterão sua proporção e preencherão o contêiner */
+    object-position: center;
+    /* Garante que o foco da imagem permaneça centralizado */
+}
 
 .featured-car__info {
     padding: 12px 7px;
@@ -72,13 +76,14 @@
 
 
 .featured-cars__header {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        padding-bottom: 22px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 22px;
 
 }
-.featured-cars__header h2{
+
+.featured-cars__header h2 {
     font-size: 32px;
     color: #000;
     font-weight: 700;
@@ -86,23 +91,23 @@
 
 }
 
-.featured-cars__header p{
+.featured-cars__header p {
     font-size: 22px;
     color: #4e4ffa;
     text-transform: uppercase;
-    
+
 }
 
 .featured-car-card {
     cursor: pointer;
     transition: transform 0.2s;
-  }
-  
-  .featured-car-card:hover {
+}
+
+.featured-car-card:hover {
     transform: scale(1.05);
-  }
-  
-  .modal-container {
+}
+
+.modal-container {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -116,15 +121,15 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-  }
-  
-  .car-details img {
+}
+
+.car-details img {
     width: 100%;
     height: auto;
     margin-bottom: 20px;
-  }
-  
-  .close-button {
+}
+
+.close-button {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -132,4 +137,4 @@
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-  }
+}
