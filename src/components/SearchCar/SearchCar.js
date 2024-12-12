@@ -15,8 +15,8 @@ export const SearchCar = () => {
 
     // Dados reais para modelos, marcas e anos no Brasil
     const models = [
-        'Fiat Uno', 'Fiat Palio', 'Volkswagen Gol', 'Volkswagen Polo', 'Chevrolet Onix', 
-        'Chevrolet Tracker', 'Honda Civic', 'Honda HR-V', 'Toyota Corolla', 'Ford Ka', 
+        'Fiat Uno', 'Fiat Palio', 'Volkswagen Gol', 'Volkswagen Polo', 'Chevrolet Onix',
+        'Chevrolet Tracker', 'Honda Civic', 'Honda HR-V', 'Toyota Corolla', 'Ford Ka',
         'Ford Fiesta', 'Renault Kwid', 'Renault Duster', 'Nissan Kicks'
     ];
     const brands = [
@@ -57,7 +57,7 @@ export const SearchCar = () => {
                     ))}
                 </Grid>
                 <Button style={{ background: theme }} className="search__btn" variant="contained">
-                    SEARCH
+                    PROCURAR
                 </Button>
             </Box>
         </Container>

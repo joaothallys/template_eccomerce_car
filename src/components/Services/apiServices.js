@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import './Services.style.css';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
@@ -7,37 +7,53 @@ import SvgIcon from '@mui/material/SvgIcon';
 
 export const Services = () => {
 
-  const services = [{ title: "largest dealership", pretitle: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut den fugit sed quia. ", image: DirectionsCarIcon }, { title: "unlimited repair warrenty", pretitle: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut den fugit sed quia. ", image: LocalShippingIcon }, { title: "insurence support", pretitle: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut den fugit sed quia. ", image: LocalCarWashIcon }]
+  const services = [
+    { 
+      title: "Maior concessionária", 
+      pretitle: "Ninguém despreza, odeia ou foge do próprio prazer porque é prazer, mas porque.", 
+      image: DirectionsCarIcon 
+    },
+    { 
+      title: "Garantia de reparo ilimitada", 
+      pretitle: "Ninguém ama a dor em si, que a busca e quer tê-la, simplesmente porque é dor.", 
+      image: LocalShippingIcon 
+    },
+    { 
+      title: "Suporte de seguro", 
+      pretitle: "Ninguém ama a dor em si, que a busca e quer tê-la, simplesmente porque é dor.", 
+      image: LocalCarWashIcon 
+    }
+  ];
 
   const Service = ({ service }) => {
     return (
-      <div class="single-service-item">
-        <div class="single-service-icon">
-        <SvgIcon component={service.image}/>
+      <div className="single-service-item">
+        <div className="single-service-icon">
+          <SvgIcon component={service.image} />
         </div>
         <h2><a href="#">{service.title}</a></h2>
         <p>
           {service.pretitle}
         </p>
       </div>
-    )
+    );
+  };
 
-  }
   return (
-    <section id="service" class="service">
-      <div class="service__container">
-        <div class="service__title">
-          <h2>get your desired car in resonable price</h2>
+    <section id="service" className="service">
+      <div className="service__container">
+        <div className="service__title">
+          <h2>Obtenha o carro desejado por um preço razoável</h2>
         </div>
-        <div class="service__content">
-          {services.map((service) => (
-            <Service service={service} />
+        <div className="service__content">
+          {services.map((service, index) => (
+            <Service key={index} service={service} />
           ))}
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 const API_URL = 'https://compara-e-venda-de-veiculos.onrender.com/anuncio/listar';
 
